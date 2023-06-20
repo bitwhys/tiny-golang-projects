@@ -1,9 +1,13 @@
 package main
 
-func ExampleMain() {
-	main()
-	//Output:
-	// Hello world
-}
+import "testing"
 
-// How can we make sure something is sent to the standard output from within a function?
+func TestGreet(t *testing.T) {
+	want := "Hello world"
+	got := greet()
+
+	if got != want {
+		// mark this test as failed
+		t.Errorf("expected: %q, got: %q", want, got)
+	}
+}
